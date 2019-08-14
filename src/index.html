@@ -15,12 +15,19 @@
 
     <script type="text/babel">
         let element1 = React.createElement('h2', {id: 'box1', className:'box1'},'test')
-        ReactDOM.render(element1, document.getElementById('example'))
+        ReactDOM.render(element1, document.getElementById('example1'))
+
+        //JSX创建的虚拟DOM对象
+        let element2 = <h3>H3</h3>
+        ReactDOM.render(element2, document.getElementById('example2'))
+
+        
     </script>
 
-    <div id="example">
-
+    <div id="example1">
     </div>
+    <div id="example2">
+    </div>    
 </body>
 
 </html>
