@@ -15,8 +15,7 @@
     </div>  
     <div id="example3">
     </div> 
-    <div id="example4">
-    </div> 
+
     <script src="../js/react.js"></script>
     <script src="../js/react-dom.js"></script>
     <!-- 生产环境中不建议使用 -->
@@ -46,25 +45,6 @@
             }
         }
         ReactDOM.render(<MyComponent/>, document.getElementById('example3'))
-
-        class Person extends React.Component{
-
-            render(){
-                
-                return (
-                    <ul>
-                        <li>姓名：{this.props.username} </li>
-                        <li>性别：{this.props.age} </li>
-                        <li>年龄：{this.props.sex}  </li>
-                    </ul>
-                )
-            }
-        }
-        Person.defaultProps = {
-            sex: "女"
-        }
-        let  person = {username: 'kobe',age: 39}
-        ReactDOM.render(<Person username={person.username} age= {person.age} />, document.getElementById('example4'))
         
     </script>
 </body>
