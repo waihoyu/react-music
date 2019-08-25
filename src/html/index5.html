@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="example1">
+
+    </div>
+
+    <div id="example2">
+    </div>  
+    <div id="example3">
+    </div> 
+    <div id="example4">
+    </div> 
+    <script src="../js/react.js"></script>
+    <script src="../js/react-dom.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="../js/babel.min.js"></script>
+    <script src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.js"></script>
+    <script type="text/babel">
+    
+        class App extends React.Component{
+            constructor(props){
+                super(props)
+                this.state = {
+                    todos: ['吃饭','睡觉','运动']
+                 }  
+                 this.add = this.add.bind(this)             
+            }
+            add(newTodo){
+                let todos = this.state.todos 
+                todos.unshift(newTodo)
+                this.setState({
+                    todos
+                })
+            }
+            render(){
+                let {todos} = this.state
+                return (
+                   <div>
+                        <AddTodo add={this.add} length={todos.length}/>
+                        <TodoList todos={todos}/>
+                        <button >确定</button>
+                    </div> 
+                )
+            }
+        }
+
+        class AddTodo extends React.Component{
+            constructor(props){
+                super(props)
+                this.addTodo = this.addTodo.bind(this)
+            }
+            addTodo(){
+                let newTodo1 = this.refs.newTodo.value  
+                this.props.add(newTodo1)        
+                this.refs.newTodo.value = ""  
+            }
+            render(){
+                return (
+                    <div>
+                        <input ref="newTodo" type="text"/>
+                        <button onClick={this.addTodo}>添加 {this.props.length}</button>
+                    </div>
+                )
+            }
+        }
+
+        class TodoList extends React.Component{
+            render(){
+                let {todos} = this.props
+                return (
+                    <ul>
+                        {todos.map((item, index) => <li key={index}>{item}</li>)}
+                    </ul>                    
+                )
+            }
+        }
+
+
+        ReactDOM.render(<App/>, document.getElementById('example1'))
+    </script>
+</body>
+</html>

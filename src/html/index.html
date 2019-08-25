@@ -21,7 +21,7 @@
     <script src="../js/react-dom.js"></script>
     <!-- 生产环境中不建议使用 -->
     <script src="../js/babel.min.js"></script>
-
+    <script src="https://cdn.bootcss.com/prop-types/15.7.2/prop-types.js"></script>
     <script type="text/babel">
         let element1 = React.createElement('h2', {id: 'box1', className:'box1'},'test')
         ReactDOM.render(element1, document.getElementById('example1'))
@@ -63,10 +63,17 @@
         Person.defaultProps = {
             sex: "女"
         }
+        Person.propTypes = {
+            username:   PropTypes.string.isRequired,
+            age:    PropTypes.number.isRequired,
+            sex:    PropTypes.string.isRequired,
+        }
+        
         let  person = {username: 'kobe',age: 39}
         ReactDOM.render(<Person username={person.username} age= {person.age} />, document.getElementById('example4'))
         
     </script>
+
 </body>
 
 </html>
