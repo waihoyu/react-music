@@ -32,6 +32,15 @@
                  }  
                  this.add = this.add.bind(this)             
             }
+            componentWillMount(){
+                console.log('componentWillMount')
+            }
+            componentDidMount(){
+                console.log('componentDidMount')
+            }
+            componentWillUpdate(){
+                console.log('componentWillUpdate')
+            }
             add(newTodo){
                 let todos = this.state.todos 
                 todos.unshift(newTodo)

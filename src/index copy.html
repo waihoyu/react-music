@@ -15,12 +15,16 @@
     </div>  
     <div id="example3">
     </div> 
+    <div id="container">
+    </div> 
 
     <script src="../js/react.js"></script>
     <script src="../js/react-dom.js"></script>
     <!-- 生产环境中不建议使用 -->
     <script src="../js/babel.min.js"></script>
+    <script src="dist/bundle.js" type="text/javascript"></script>
 
+    
     <script type="text/babel">
         let element1 = React.createElement('h2', {id: 'box1', className:'box1'},'test')
         ReactDOM.render(element1, document.getElementById('example1'))
